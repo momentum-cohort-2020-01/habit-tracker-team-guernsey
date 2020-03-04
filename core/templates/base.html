@@ -7,17 +7,19 @@
 </head>
 <body>
 <header>
+    {% block content %}
     <h1>Habit Tracker</h1>
     <div class="menu">
-        <a class="link" href = "{}">Add New Habit</a>
+        <a class="link" href = "{% url 'habit-add' %}">Add New Habit</a>
         <a class="link" href="{}">CALANDAR?</a>
-        <a class="link" href="{}">USERNAME</a>
+        <a class="link" href="http://127.0.0.1:8000/accounts/logout/">Log Out</a>
     </div>
+    {% endblock content %}
 </header>
 <main>
     <div class="habit-container">
         {% block main %}
-        {% endblock %}
+        {% endblock main %}
     </div>
 
 </main>
