@@ -5,7 +5,8 @@ from .models import Habit, Result
 from .forms import HabitForm
 
 def habit_list(request):
-    return render(request, 'core/habit_list.html')
+    habits = Habit.objects.all()
+    return render(request, 'core/habit_list.html', {'habits': habits})
 
 def habit_add(request):
     if request.method == "POST":
