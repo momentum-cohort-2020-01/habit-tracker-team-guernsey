@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<a href="{% url 'habit-delete' pk %}">Delete habit</a>
 <h3>{{habit.name}}</h3>
 <a class='btn btn-edit' href="{% url 'habit-edit' pk %}">Edit</a>
 {% endblock content %}

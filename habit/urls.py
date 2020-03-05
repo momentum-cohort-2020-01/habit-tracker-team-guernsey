@@ -25,8 +25,8 @@ urlpatterns = [
     path('habit/add/', views.habit_add, name='habit-add'),
     path('habit/<int:pk>', views.habit_details, name='habit-details'),
     path('accounts/', include('registration.backends.default.urls')),
-    path('habit/<int:pk>/delete', views.habit_delete, name='habit-delete')
-    path('habit/edit/<int:pk>', views.habit_edit, name='habit-edit')
+    path('habit/<int:pk>/delete', views.habit_delete, name='habit-delete'),
+    path('habit/edit/<int:pk>', views.habit_edit, name='habit-edit'),
 ]
 
 if settings.DEBUG:
