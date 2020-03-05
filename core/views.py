@@ -22,3 +22,14 @@ def habit_add(request):
     else:
         form = HabitForm()
     return render(request, 'core/habit_add.html', {'form':form})
+
+def habit_edit(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    if request.method == "POST":
+        form = HabitForm(request.POST, instance = habit)
+        if form.is_valid():
+            habit.save()
+            return redirect('habit-details', habit.pk)
+    else:
+        form = HabitForm(instance = habit)
+        return render(request, 'core/habit_edit.html', {'form':form})    

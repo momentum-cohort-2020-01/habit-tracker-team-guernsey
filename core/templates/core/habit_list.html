@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 {% block main %}
 {% for habit in habits %}
+<div class='habit-container'>
+    <a href= "{% url 'habit-details' habit.pk %}">
 <p>{{ habit.name }}</p>
 <p>{{ habit.goal }}</p>
 <p>{{ habit.date }}</p>
+<p>{{ habit.recording }}</p>
 {% endfor %}
 {% endblock %}
+
+</a>
+</div>
