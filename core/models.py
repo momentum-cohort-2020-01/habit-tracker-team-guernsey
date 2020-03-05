@@ -10,7 +10,6 @@ class Habit(models.Model):
     date = models.DateField()
     # goal_met = models.BooleanField(default=False)
 
-
     def __str__(self):
         return f" Habit name: {self.name} goal: {self.goal} date: {self.date}"
 

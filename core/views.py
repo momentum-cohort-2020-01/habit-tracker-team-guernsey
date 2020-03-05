@@ -12,6 +12,7 @@ def habit_details(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
     return render(request, 'core/habit_details.html', {'habit':habit, 'pk':pk})
 
+
 def habit_add(request):
     if request.method == "POST":
         form = HabitForm(request.POST)

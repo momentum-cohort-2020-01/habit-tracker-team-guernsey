@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block main %}
+
+<a class="link" href="/">CALANDAR?</a>
+
 {% for habit in habits %}
 <div class='habit-container'>
     <a href= "{% url 'habit-details' habit.pk %}">
@@ -9,7 +12,6 @@
     <a href = "{% url 'progress-edit' habit.pk %}">
 
 <p>Progress: {{ habit.results }} **this will show our added progress** </p>
-
 {% endfor %}
 {% endblock %}
 
