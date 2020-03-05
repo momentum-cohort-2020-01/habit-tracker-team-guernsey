@@ -3,4 +3,6 @@
 <a href="{% url 'habit-delete' pk %}">Delete habit</a>
 <h3>{{habit.name}}</h3>
 <a class='btn btn-edit' href="{% url 'habit-edit' pk %}">Edit</a>
+<a href="{% url 'habit-delete' pk %}">Delete 1st habit</a>
+
 {% endblock content %}
