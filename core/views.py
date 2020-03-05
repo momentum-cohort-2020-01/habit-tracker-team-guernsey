@@ -23,6 +23,11 @@ def habit_add(request):
         form = HabitForm()
     return render(request, 'core/habit_add.html', {'form':form})
 
+def habit_delete(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    habit.delete()
+    return redirect('habit-list')
+    
 def habit_edit(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
     if request.method == "POST":
