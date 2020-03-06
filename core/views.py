@@ -6,11 +6,13 @@ from .forms import HabitForm, ResultForm
 @login_required
 def habit_list(request):
     habits = Habit.objects.all()
-    return render(request, 'core/habit_list.html', {'habits': habits})
+    results = Result.objects.all()
+    return render(request, 'core/habit_list.html', {'habits': habits, 'results': results})
 
 def habit_details(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
-    return render(request, 'core/habit_details.html', {'habit':habit, 'pk':pk})
+    result = Result.objects.all()
+    return render(request, 'core/habit_details.html', {'habit':habit, 'pk':pk, 'result':result})
 
 
 def habit_add(request):
@@ -44,14 +46,17 @@ def show_progress(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
     return render(request, 'core/habit_details.html', {'habit':habit, 'pk':pk})
 
-
-def progress_edit(request, pk):
-    habit = get_object_or_404(Habit, pk=pk)
+def progress_add(request, habit_pk):
+    habit = get_object_or_404(Habit, pk=habit_pk)
     if request.method == "POST":
-        form = ResultForm(request.POST, instance = habit)
+        form = ResultForm(request.POST)
         if form.is_valid():
-            progress.save()
-            return redirect('habit-details', habit.pk)
+            result = form.save(commit=False)
+            result.habit = habit
+            form.save()
+            return redirect('habit-details', habit_pk)
     else:
-        form = ResultForm(instance = habit)
-        return render(request, 'core/habit_details.html', {'form':form})
+        form = ResultForm()
+        return render(request, 'core/progress_add.html', {'form': form})
+
+

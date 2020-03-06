@@ -12,7 +12,7 @@ urlpatterns = [
     path('accounts/', include('registration.backends.default.urls')),
     path('habit/<int:pk>/delete', views.habit_delete, name='habit-delete'),
     path('habit/edit/<int:pk>', views.habit_edit, name='habit-edit'),
-    path('habit/progress/edit/<int:pk>', views.progress_edit, name='progress-edit'),
+    path('habit/progress/add/<int:habit_pk>', views.progress_add, name='progress-add'),
 ]
 
 if settings.DEBUG:
