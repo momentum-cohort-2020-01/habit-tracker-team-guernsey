@@ -1,17 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit Tracker</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
 <header>
     {% block content %}
-    <h1>Habit Tracker</h1>
+    <h1 class="habit-tracker">Habit Tracker</h1>
     <div class="menu">
-        <a class="link" href = "{% url 'habit-add' %}">Add New Habit</a>
-        <a class="link" href="http://127.0.0.1:8000/accounts/logout/">Log Out</a>
+        <a class="link log-out" href="http://127.0.0.1:8000/accounts/logout/">Log Out</a>
     </div>
     {% endblock content %}
 </header>
