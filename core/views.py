@@ -19,7 +19,7 @@ def habit_add(request):
         if form.is_valid():
             habit = form.save(commit=False)
             habit.save()
-            return redirect('habit-details', pk=habit.pk)
+            return redirect('habit-list')
     else:
         form = HabitForm()
     return render(request, 'core/habit_add.html', {'form':form})
