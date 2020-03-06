@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 {% block main %}
 
-<a class="link" href="/">CALANDAR?</a>
-
-{% for habit in habits %}
+<!-- <a class="link" href="/">CALANDAR?</a> -->
+<form action="{% url 'habit-add' %}">
+    <button type="submit" class="add-habit">Add Habit</button>
+</form>
+<!-- <a class="link" href = "{% url 'habit-add' %}">Add New Habit</a> -->
+<div>
 <div class='habit-container'>
+{% for habit in habits %}
+<div class='habit-div'>
     <a href= "{% url 'habit-details' habit.pk %}">
-<p>{{ habit.name }}</p>
-<p>{{ habit.goal }}</p>
+        <p>{{ habit.name }}</p>
+        <p>{{ habit.goal }}</p>
     </a>
     <a href = "{% url 'progress-edit' habit.pk %}">
-
-<p>Progress: {{ habit.results }} **this will show our added progress** </p>
-<hr>
-{% endfor %}
-{% endblock %}
-
-</a>
+        <p>Progress: {{ habit.results }} **this will show our added progress** </p>
+    </a>
 </div>
+{% endfor %}
+</div>
+</div>
+
+
+
+{% endblock %}

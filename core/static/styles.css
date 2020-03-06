@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.habit-tracker {
+    font-size: 2rem;
+}
+
+.log-out {
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.habit-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.habit-div {
+    border: solid 2px;
+    width: 400px;
+    margin: 10px;
+}
+
+form {
+    display: block;
+}
