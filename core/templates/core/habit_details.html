@@ -2,7 +2,12 @@
 {% block content %}
 <a href="{% url 'habit-delete' pk %}">Delete habit</a>
 <h3>{{habit.name}}</h3>
+<p>Progress: /{{habit.goal}}</p>
+{% for progress in result %}
+<p>{{progress.progress}}</p>
+{% endfor %}
 <a class='btn btn-edit' href="{% url 'habit-edit' pk %}">Edit</a>
-<a href=''>Add Progress</a>
+<a href="{% url 'progress-add' pk %}">Add Progress</a>
+<p></p>
 
 {% endblock content %}

@@ -15,7 +15,7 @@ class Habit(models.Model):
 
 class Result(models.Model):
     progress = models.PositiveIntegerField(null=True, blank=True)
-    habit = models.ForeignKey("Result", on_delete=models.CASCADE, related_name="results")
+    habit = models.ForeignKey("Habit", on_delete=models.CASCADE, related_name="results")
 
 
     def __str__(self):

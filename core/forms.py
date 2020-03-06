@@ -13,3 +13,4 @@ class ResultForm(forms.ModelForm):
     class Meta:
         model = Result
         fields = ('progress',)
+
