@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Habit(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     goal = models.PositiveIntegerField()
     # we may need to change DateField
     date = models.DateField()
