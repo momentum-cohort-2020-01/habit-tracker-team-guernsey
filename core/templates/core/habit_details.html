@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+
 {% block content %}
+<a class="link" href="{% url 'habit-list' %}">Home</a>
+
 <a href="{% url 'habit-delete' pk %}">Delete habit</a>
 <h3>{{habit.name}}</h3>
 <p>Progress: /{{habit.goal}}</p>
