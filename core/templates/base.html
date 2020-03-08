@@ -11,6 +11,8 @@
 <header>
     {% block content %}
     <h1 class="habit-tracker">Habit Tracker</h1>
+    <a class="link" href="{% url 'habit-list' %}">Home</a>
+
     <div class="menu">
         <a class="link log-out" href="http://127.0.0.1:8000/accounts/logout/">Log Out</a>
     </div>
