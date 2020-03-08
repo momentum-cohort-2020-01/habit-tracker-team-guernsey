@@ -56,7 +56,7 @@ def progress_add(request, habit_pk):
             form.save()
             return redirect('habit-details', habit_pk)
     else:
-        form = ResultForm()
-        return render(request, 'core/progress_add.html', {'form': form})
+        form = ResultForm(instance=habit)
+        return render(request, 'core/progress_add.html', {'form': form, 'habit':habit})
 
 

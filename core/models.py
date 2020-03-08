@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 
 # Create your models here.
@@ -16,9 +17,14 @@ class Habit(models.Model):
 class Result(models.Model):
     progress = models.PositiveIntegerField(null=True, blank=True)
     habit = models.ForeignKey("Habit", on_delete=models.CASCADE, related_name="results")
+    date = models.DateField(default=datetime.date.today)
+
 
 
     def __str__(self):
-        return f"Result progress: {self.progress}"
+        return f"Result progress: {self.progress} habit: {self.habit} date: {self.date}"
+
+    class Meta:
+        unique_together = ('progress', 'habit')
 
 # class Observer:

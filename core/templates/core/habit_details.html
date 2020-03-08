@@ -8,6 +8,7 @@
 <p>Progress: /{{habit.goal}}</p>
 {% for progress in result %}
 <p>{{progress.progress}}</p>
+<p>{{progress.date}}</p>
 {% endfor %}
 <a class='btn btn-edit' href="{% url 'habit-edit' pk %}">Edit</a>
 <a href="{% url 'progress-add' pk %}">Add Progress</a>
